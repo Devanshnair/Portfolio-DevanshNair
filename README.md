@@ -1,36 +1,27 @@
-# [devanshnair.me](https://devanshnair.me)
+<p>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://shieldcn.dev/header/grid.svg?title=devanshnair.me&amp;subtitle=A+pixel-perfect+dev+portfolio+and+interactive+showcase.&amp;logo=data%3Aimage%2Fsvg%2Bxml%2C%3Csvg+xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27+fill%3D%27none%27+viewBox%3D%270+0+24+24%27%3E%3Cpath+fill%3D%27%2523000%27+d%3D%27M1+6h3v12H1z+M4+6h4v3H4z+M4+15h4v3H4z+M8+9h3v6H8z+M13+6h3v12h-3z+M19+6h3v12h-3z+M16+9h2v3h-2z+M17+12h2v3h-2z%27%2F%3E%3C%2Fsvg%3E&amp;size=wide&amp;mode=dark&amp;theme=zinc&amp;font=geist" />
+    <img alt="header" src="https://shieldcn.dev/header/grid.svg?title=devanshnair.me&amp;subtitle=A+pixel-perfect+dev+portfolio+and+interactive+showcase.&amp;logo=data%3Aimage%2Fsvg%2Bxml%2C%3Csvg+xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27+fill%3D%27none%27+viewBox%3D%270+0+24+24%27%3E%3Cpath+fill%3D%27%2523000%27+d%3D%27M1+6h3v12H1z+M4+6h4v3H4z+M4+15h4v3H4z+M8+9h3v6H8z+M13+6h3v12h-3z+M19+6h3v12h-3z+M16+9h2v3h-2z+M17+12h2v3h-2z%27%2F%3E%3C%2Fsvg%3E&amp;size=wide&amp;mode=dark&amp;theme=zinc&amp;font=geist" />
+  </picture>
+</p>
 
-A personal developer portfolio and interactive showcase for **Devansh Nair** — Full Stack Developer & Competitive Programmer.
+→ Live site: [devanshnair.me](https://devanshnair.me)
 
-→ **Live Site**: [devanshnair.me](https://devanshnair.me)
-
----
+[![screenshot-desktop-dark](./public/screenshot-desktop-dark.png)](https://devanshnair.me)
 
 ## Overview
 
-### Key Features
+### Featured
 
-* **Unified Developer Heatmap**: Aggregates activity across **GitHub** (commits & pull requests), **LeetCode** (problem submissions & solved count), and **Codeforces** (contests & ratings) into a single unified contribution graph.
-* **Curated Portfolio Showcase**:
-  * Detailed **Experience** breakdown with company milestones and technical impact.
-  * Interactive **Projects** catalogue with live demo previews and repository links.
-  * **Hackathons** and competitive programming accomplishments.
-  * **Education**, **Awards**, and **Certifications**.
-* **Command Menu & Power-User Hotkeys**:
-  * Global `Cmd + K` search palette across portfolio sections and blog posts.
-  * Sequence navigation hotkeys (`g>h` for Home, `g>e` for Experience, `g>p` for Projects, `g>a` for Hackathons, `g>l` for Blog).
-* **Technical SEO & AI-Ready**:
-  * Rich **Schema.org / JSON-LD** structured data (`Person`, `ProfilePage`, `WebSite`, `BlogPosting`).
-  * Dynamic edge **Open Graph (OG)** social preview cards at 1200x630 resolution.
-  * Standardized `/llms.txt` endpoint for AI search engines (Perplexity, ChatGPT, Gemini).
-  * Auto-generated `sitemap.xml` and `robots.txt`.
-* **Dark / Light CAD Aesthetic**:
-  * Pixel-perfect vector `DN` mark and CAD technical grid accents.
-  * Responsive, mobile-first layouts with smooth spring transitions.
+- Clean & modern design
+- Light/Dark themes
+- vCard integration
+- SEO optimized ([JSON-LD schema](https://json-ld.org), sitemap, robots)
+- AI-ready with [/llms.txt](https://llmstxt.org)
+- Spam-protected email
+- Installable as PWA
 
----
-
-## Tech Stack
+### Tech Stack
 
 | Layer | Technology |
 | :--- | :--- |
@@ -48,9 +39,9 @@ A personal developer portfolio and interactive showcase for **Devansh Nair** —
 
 ### Prerequisites
 
-* [Node.js](https://nodejs.org) (v20+ recommended)
-* [pnpm](https://pnpm.io) (`corepack enable pnpm` or `npm i -g pnpm`)
-* [Bun](https://bun.sh) (for build and registry scripts)
+* [Node.js](https://nodejs.org/) (v20+ recommended)
+* [pnpm](https://pnpm.io/) (`corepack enable pnpm` or `npm i -g pnpm`)
+* [Bun](https://bun.sh/) (for build and registry scripts)
 
 ### Installation
 
@@ -86,4 +77,4 @@ The site will run locally at `http://localhost:3000` (or `https://ncdai.localhos
 
 ## License
 
-This project is licensed under the [MIT License](./LICENSE). Personal content, name, and branding are proprietary to Devansh Nair.
+This project is licensed under the [MIT License](https://github.com/Devanshnair/Portfolio-DevanshNair/blob/main/LICENSE). Personal content, name, and branding are proprietary to Devansh Nair.
