@@ -14,7 +14,7 @@ export const SITE_INFO = {
 
 export const LICENSE = {
   name: "MIT License",
-  url: "https://github.com/ncdai/chanhdai.com/blob/main/LICENSE",
+  url: "https://github.com/Devanshnair/Portfolio-DevanshNair/blob/main/LICENSE",
 }
 
 export const META_THEME_COLORS = {
@@ -51,9 +51,9 @@ export const MOBILE_NAV: NavItem<Route>[] = [
 
 export const X_HANDLE = "@Devanshnair"
 export const GITHUB_USERNAME = SOCIAL.github.handle
-export const SOURCE_CODE_GITHUB_REPO = "Devanshnair/MinimalPortfolio"
+export const SOURCE_CODE_GITHUB_REPO = "Devanshnair/Portfolio-DevanshNair"
 export const SOURCE_CODE_GITHUB_URL =
-  "https://github.com/Devanshnair/MinimalPortfolio"
+  "https://github.com/Devanshnair/Portfolio-DevanshNair"
 
 export const UTM_PARAMS = {
   utm_source: "devanshnair.me",
