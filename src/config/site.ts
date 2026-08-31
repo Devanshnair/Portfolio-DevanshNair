@@ -6,7 +6,7 @@ import { USER } from "@/features/portfolio/data/user"
 
 export const SITE_INFO = {
   name: USER.displayName,
-  url: process.env.NEXT_PUBLIC_APP_URL || "https://chanhdai.com",
+  url: process.env.NEXT_PUBLIC_APP_URL || "https://devanshnair.me",
   ogImage: USER.ogImage,
   description: USER.bio,
   keywords: USER.keywords,
@@ -24,38 +24,37 @@ export const META_THEME_COLORS = {
 
 export const MAIN_NAV: NavItem<Route>[] = [
   {
-    title: "Components",
-    href: "/components",
+    title: "Experience",
+    href: "/experience" as Route,
   },
   {
-    title: "Blocks",
-    href: "/blocks",
+    title: "Projects",
+    href: "/projects" as Route,
+  },
+  {
+    title: "Hackathons",
+    href: "/hackathons" as Route,
   },
   {
     title: "Blog",
-    href: "/blog",
-  },
-  {
-    title: "Sponsors",
-    href: "/sponsors",
+    href: "/blog" as Route,
   },
 ]
 
 export const MOBILE_NAV: NavItem<Route>[] = [
   {
     title: "Home",
-    href: "/",
+    href: "/" as Route,
   },
   ...MAIN_NAV,
 ]
 
-export const X_HANDLE = SOCIAL.x.handle
+export const X_HANDLE = "@Devanshnair"
 export const GITHUB_USERNAME = SOCIAL.github.handle
-export const SOURCE_CODE_GITHUB_REPO = "ncdai/chanhdai.com"
-export const SOURCE_CODE_GITHUB_URL = "https://github.com/ncdai/chanhdai.com"
-
-export const SPONSORSHIP_URL = "https://github.com/sponsors/ncdai"
+export const SOURCE_CODE_GITHUB_REPO = "Devanshnair/MinimalPortfolio"
+export const SOURCE_CODE_GITHUB_URL =
+  "https://github.com/Devanshnair/MinimalPortfolio"
 
 export const UTM_PARAMS = {
-  utm_source: "chanhdai.com",
+  utm_source: "devanshnair.me",
 }

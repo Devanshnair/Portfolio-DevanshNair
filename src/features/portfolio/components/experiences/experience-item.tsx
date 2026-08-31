@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { addQueryParams } from "@/utils/url"
+import { LaptopMinimal } from "lucide-react"
 
 import { UTM_PARAMS } from "@/config/site"
 
@@ -13,7 +14,7 @@ export function ExperienceItem({ experience }: { experience: Experience }) {
       className="group/experience screen-line-bottom scroll-mt-14 space-y-4 py-4"
     >
       <div className="flex items-start gap-3 sm:items-center">
-        <div className="flex size-6 shrink-0 items-center justify-center select-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:text-muted-foreground [&_svg:not([class*='size-'])]:size-5">
+        <div className="flex size-6 shrink-0 items-center justify-center select-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:text-muted-foreground [&_svg]:transition-colors [&_svg]:duration-300 group-hover/experience:[&_svg]:text-foreground [&_svg:not([class*='size-'])]:size-5">
           {experience.companyLogo ? (
             <Image
               src={experience.companyLogo}
@@ -21,13 +22,13 @@ export function ExperienceItem({ experience }: { experience: Experience }) {
               width={24}
               height={24}
               quality={100}
-              className="rounded-full grayscale transition-[filter] duration-300 ease-[cubic-bezier(0.42,0,0.58,1)] group-hover/experience:grayscale-0"
+              className="size-5 object-contain grayscale transition-[filter] duration-300 ease-[cubic-bezier(0.42,0,0.58,1)] group-hover/experience:grayscale-0"
               unoptimized
               aria-hidden
             />
           ) : (
             (experience.companyIcon ?? (
-              <span className="flex size-2 rounded-full bg-zinc-300 dark:bg-zinc-600" />
+              <LaptopMinimal className="size-5 text-muted-foreground transition-colors duration-300 group-hover/experience:text-foreground" />
             ))
           )}
         </div>

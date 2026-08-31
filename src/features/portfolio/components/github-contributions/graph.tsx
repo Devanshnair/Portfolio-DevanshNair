@@ -9,7 +9,6 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/base/ui/tooltip"
-import type { Activity } from "@/registry/components/contribution-graph"
 import {
   ContributionGraph,
   ContributionGraphBlock,
@@ -18,16 +17,17 @@ import {
   ContributionGraphLegend,
   ContributionGraphTotalCount,
 } from "@/registry/components/contribution-graph"
+import type { DeveloperActivityData } from "@/features/portfolio/data/github-contributions"
 import { SOCIAL } from "@/features/portfolio/data/social-links"
 
 export function GitHubContributionGraph({
-  contributions,
+  dataPromise,
 }: {
-  contributions: Promise<Activity[]>
+  dataPromise: Promise<DeveloperActivityData>
 }) {
-  const data = use(contributions)
+  const { activities, stats } = use(dataPromise)
 
-  if (data.length === 0) {
+  if (activities.length === 0) {
     return null
   }
 
@@ -35,15 +35,15 @@ export function GitHubContributionGraph({
     <figure>
       <ContributionGraph
         className="mx-auto gap-4 py-4"
-        data={data}
+        data={activities}
         blockSize={12}
         blockMargin={2}
         blockRadius={0}
-        aria-label="GitHub Contributions Graph"
+        aria-label="Developer Activity Graph"
       >
         <ContributionGraphCalendar
           className="px-4 **:data-[slot=month-labels]:text-muted-foreground"
-          title="GitHub Contributions"
+          title="Developer Activity"
           aria-hidden
         >
           {({ activity, dayIndex, weekIndex }) => (
@@ -61,39 +61,80 @@ export function GitHubContributionGraph({
               />
               <TooltipContent className="font-sans">
                 <p>
-                  {activity.count} contribution{activity.count > 1 ? "s" : null}{" "}
-                  on {format(parseISO(activity.date), "d MMM yyyy")}
+                  {activity.count}{" "}
+                  {activity.count === 1 ? "activity" : "activities"} on{" "}
+                  {format(parseISO(activity.date), "d MMM yyyy")}
                 </p>
               </TooltipContent>
             </Tooltip>
           )}
         </ContributionGraphCalendar>
 
-        <ContributionGraphFooter className="px-4 text-sm">
+        <ContributionGraphFooter className="items-start justify-between px-4 text-sm">
           <ContributionGraphTotalCount>
-            {({ totalCount }) => (
+            {() => (
               <figcaption className="text-pretty tabular-nums">
-                <span className="mr-2 tracking-wide text-muted-foreground/80">
-                  Fig. 2.
-                </span>
-                {totalCount.toLocaleString("en")} contributions,{" "}
-                {format(parseISO(data[0].date), "dd.MM.yyyy")} –{" "}
-                {format(parseISO(data[data.length - 1].date), "dd.MM.yyyy")}.
-                Source:{" "}
-                <a
-                  href={SOCIAL.github.href}
-                  className="link-underline"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  GitHub
-                </a>
-                .
+                <div>
+                  <span className="mr-2 tracking-wide text-muted-foreground/80">
+                    Fig. 2.
+                  </span>
+                  <span className="font-medium text-foreground">
+                    {stats.githubContributions.toLocaleString("en")}{" "}
+                    contributions
+                  </span>
+                  <span className="text-muted-foreground">, </span>
+                  <span className="font-medium text-foreground">
+                    {stats.solvedProblems.toLocaleString("en")} solved
+                  </span>
+                  <span className="text-muted-foreground">, </span>
+                  <span className="font-medium text-foreground">
+                    {stats.contests.toLocaleString("en")} contests
+                  </span>
+                  <span className="text-muted-foreground">
+                    , {format(parseISO(activities[0].date), "dd.MM.yyyy")} –{" "}
+                    {format(
+                      parseISO(activities[activities.length - 1].date),
+                      "dd.MM.yyyy"
+                    )}
+                    .
+                  </span>
+                </div>
+
+                <div className="mt-1 text-muted-foreground">
+                  <span>Sources: </span>
+                  <a
+                    href={SOCIAL.github.href}
+                    className="text-foreground link-underline"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    GitHub
+                  </a>
+                  <span>, </span>
+                  <a
+                    href={SOCIAL.leetcode.href}
+                    className="text-foreground link-underline"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    LeetCode
+                  </a>
+                  <span>, </span>
+                  <a
+                    href={SOCIAL.codeforces.href}
+                    className="text-foreground link-underline"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Codeforces
+                  </a>
+                  <span>.</span>
+                </div>
               </figcaption>
             )}
           </ContributionGraphTotalCount>
 
-          <ContributionGraphLegend aria-hidden />
+          <ContributionGraphLegend className="self-start pt-0.5" aria-hidden />
         </ContributionGraphFooter>
       </ContributionGraph>
     </figure>

@@ -60,17 +60,6 @@ export function AwardItem({
                     </time>
                   </dd>
                 </div>
-
-                <Separator
-                  className="data-vertical:h-4 data-vertical:self-center"
-                  orientation="vertical"
-                  aria-hidden
-                />
-
-                <div>
-                  <dt className="sr-only">Received in Grade</dt>
-                  <dd>{award.grade}</dd>
-                </div>
               </dl>
             </div>
 

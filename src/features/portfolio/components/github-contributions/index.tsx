@@ -1,19 +1,19 @@
 import { Suspense } from "react"
 
-import { getGitHubContributions } from "@/features/portfolio/data/github-contributions"
+import { getDeveloperActivity } from "@/features/portfolio/data/github-contributions"
 
 import { Panel } from "../panel"
 import { GitHubContributionFallback, GitHubContributionGraph } from "./graph"
 
 export function GitHubContributions() {
-  const contributions = getGitHubContributions()
+  const activityData = getDeveloperActivity()
 
   return (
     <Panel className="screen-line-top-none">
-      <h2 className="sr-only">GitHub Contributions</h2>
+      <h2 className="sr-only">Developer Activity</h2>
 
       <Suspense fallback={<GitHubContributionFallback />}>
-        <GitHubContributionGraph contributions={contributions} />
+        <GitHubContributionGraph dataPromise={activityData} />
       </Suspense>
 
       <div className="h-px" />

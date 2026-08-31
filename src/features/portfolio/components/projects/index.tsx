@@ -1,4 +1,8 @@
-import { CollapsibleList } from "@/components/collapsible-list"
+import type { Route } from "next"
+import Link from "next/link"
+import { ArrowRightIcon } from "lucide-react"
+
+import { Button } from "@/components/base/ui/button"
 import {
   Panel,
   PanelHeader,
@@ -11,6 +15,7 @@ import { PROJECTS } from "@/features/portfolio/data/projects"
 import { ProjectItem } from "./project-item"
 
 const ID = "projects"
+const MAX = 4
 
 export function Projects() {
   return (
@@ -23,11 +28,26 @@ export function Projects() {
         </PanelTitle>
       </PanelHeader>
 
-      <CollapsibleList
-        items={PROJECTS}
-        max={4}
-        renderItem={(item) => <ProjectItem project={item} />}
-      />
+      <ul className="divide-y divide-line">
+        {PROJECTS.slice(0, MAX).map((project) => (
+          <li key={project.id}>
+            <ProjectItem project={project} />
+          </li>
+        ))}
+      </ul>
+
+      <div className="screen-line-top flex justify-center py-4">
+        <Button
+          className="gap-2 pr-2.5 pl-3 shadow-[inset_0_0_1px] shadow-foreground/20"
+          variant="secondary"
+          size="sm"
+          nativeButton={false}
+          render={<Link href={"/projects" as Route} />}
+        >
+          All projects
+          <ArrowRightIcon />
+        </Button>
+      </div>
     </Panel>
   )
 }

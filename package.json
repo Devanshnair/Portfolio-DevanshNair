@@ -1,24 +1,24 @@
 {
-  "name": "chanhdai.com",
+  "name": "devanshnair.me",
   "version": "0.1.0",
-  "description": "A pixel-perfect dev portfolio and shadcn registry.",
-  "homepage": "https://chanhdai.com",
+  "description": "A personal developer portfolio.",
+  "homepage": "https://devanshnair.me",
   "license": "MIT",
   "author": {
-    "name": "Nguyen Chanh Dai",
-    "email": "dai@chanhdai.com",
-    "url": "https://github.com/ncdai"
+    "name": "Devansh Nair",
+    "email": "devanshnair.05@gmail.com",
+    "url": "https://github.com/Devanshnair"
   },
   "contributors": [
     {
-      "name": "Nguyen Chanh Dai",
-      "email": "dai@chanhdai.com",
-      "url": "https://github.com/ncdai"
+      "name": "Devansh Nair",
+      "email": "devanshnair.05@gmail.com",
+      "url": "https://github.com/Devanshnair"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ncdai/chanhdai.com.git"
+    "url": "git+ssh://git@github.com:Devanshnair/Portfolio-DevanshNair.git"
   },
   "scripts": {
     "dev": "next dev",
@@ -149,6 +149,5 @@
   "engines": {
     "node": ">=22.x",
     "pnpm": ">=9"
-  },
-  "packageManager": "pnpm@11.5.3"
+  }
 }

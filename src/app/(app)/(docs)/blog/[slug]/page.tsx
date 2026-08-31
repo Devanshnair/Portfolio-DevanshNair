@@ -49,7 +49,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: PageProps<"/blog/[slug]">): Promise<Metadata> {
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
   const slug = (await params).slug
   const doc = getDocBySlug(slug)
 
@@ -59,57 +61,64 @@ export async function generateMetadata({
 
   const { title, description, image, createdAt, updatedAt } = doc.metadata
 
-  const postUrl = `/blog/${doc.slug}`
-  const ogImage =
-    image ||
-    `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`
-
   return {
     title,
     description,
-    alternates: {
-      canonical: postUrl,
-    },
     openGraph: {
-      url: postUrl,
+      title,
+      description,
       type: "article",
-      publishedTime: new Date(createdAt).toISOString(),
-      modifiedTime: new Date(updatedAt).toISOString(),
-      images: {
-        url: ogImage,
-        width: 1200,
-        height: 630,
-        alt: title,
-      },
+      images: [
+        {
+          url:
+            image ||
+            `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+      publishedTime: createdAt,
+      modifiedTime: updatedAt,
     },
     twitter: {
       card: "summary_large_image",
-      site: X_HANDLE,
+      title,
+      description,
+      images: [
+        image ||
+          `/og/simple?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`,
+      ],
       creator: X_HANDLE,
-      images: [ogImage],
+      site: X_HANDLE,
     },
   }
 }
 
 function getPageJsonLd(doc: Doc): WithContext<PageSchema> {
-  const postUrl = `/blog/${doc.slug}`
-
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "@id": absoluteUrl(postUrl),
+    "@id": absoluteUrl(`/blog/${doc.slug}`),
     headline: doc.metadata.title,
     description: doc.metadata.description,
-    image:
-      doc.metadata.image ||
-      absoluteUrl(
-        `/og/simple?title=${encodeURIComponent(doc.metadata.title)}&description=${encodeURIComponent(doc.metadata.description)}`
-      ),
-    url: absoluteUrl(postUrl),
+    image: doc.metadata.image
+      ? absoluteUrl(doc.metadata.image)
+      : absoluteUrl(
+          `/og/simple?title=${encodeURIComponent(doc.metadata.title)}&description=${encodeURIComponent(doc.metadata.description)}`
+        ),
     datePublished: new Date(doc.metadata.createdAt).toISOString(),
     dateModified: new Date(doc.metadata.updatedAt).toISOString(),
-    author: { "@id": JSON_LD_ID.person },
-    mainEntityOfPage: absoluteUrl(postUrl),
+    author: {
+      "@id": JSON_LD_ID.person,
+    },
+    publisher: {
+      "@id": JSON_LD_ID.person,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": absoluteUrl(`/blog/${doc.slug}`),
+    },
     isPartOf: {
       "@type": "Blog",
       "@id": absoluteUrl("/blog"),
@@ -119,7 +128,11 @@ function getPageJsonLd(doc: Doc): WithContext<PageSchema> {
   }
 }
 
-export default async function Page({ params }: PageProps<"/blog/[slug]">) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
   const slug = (await params).slug
   const doc = getDocBySlug(slug)
 
