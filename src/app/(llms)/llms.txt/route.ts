@@ -5,7 +5,7 @@ const allPosts = getBlogPosts()
 
 const content = `# devanshnair.me
 
-> A personal developer portfolio showcasing my work as a Full Stack Developer.
+> A personal developer portfolio showcasing my work as a Software Engineer.
 
 - [About](${SITE_INFO.url}/#hello): A quick intro to me, my tech stack, and how to connect.
 - [Experience](${SITE_INFO.url}/experience): Highlights from my career and key roles I've taken on.

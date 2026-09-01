@@ -18,7 +18,7 @@ export async function GET(request: Request) {
   const title = clampParam(
     searchParams.get("title"),
     160,
-    "Devansh Nair – Full Stack Developer"
+    "Devansh Nair – Software Engineer"
   )
   const description = clampParam(
     searchParams.get("description"),

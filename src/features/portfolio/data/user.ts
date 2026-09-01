@@ -12,13 +12,13 @@ export const USER: User = {
     "Computer Engineering Student.",
     "Full Stack Developer.",
     "Competitive Programmer.",
-    "Pupil on Codeforces.",
+    "AI Enthusiast.",
   ],
   address: "Mumbai, India",
   phoneNumberB64: "KzkxLTk4Njc3MDUyMjE=", // +91-9867705221 E.164 base64 encoded
   emailB64: "ZGV2YW5zaG5haXIuMDVAZ21haWwuY29t", // devanshnair.05@gmail.com base64 encoded
   website: "https://devanshnair.me",
-  jobTitle: "Full Stack Developer",
+  jobTitle: "Software Engineer",
   jobs: [
     {
       title: "Ex - Data Analyst Intern",
@@ -30,7 +30,7 @@ export const USER: User = {
       title: "Software Engineer | Building Scalable Full-Stack & AI Systems",
     },
   ],
-  about: `- I’m Devansh Nair — a Full-Stack Developer passionate about building thoughtful applications and obsessing over the little details that matter.
+  about: `- I’m Devansh Nair — a Software Engineer passionate about building thoughtful applications and obsessing over the little details that matter.
 - Naturally curious about how things work, I like breaking problems down to their fundamentals and working my way up from first principles.
 - I learn best by getting my hands dirty — picking up new technologies, experimenting with them, and building something along the way.
 `,

@@ -39,7 +39,7 @@ Search engines use `<head>` metadata to understand your page title, snippet summ
 
 ### Best practices:
 1. **Title tags**:
-   * Format: `Page Title – Site Name` (e.g. `Experience – Devansh Nair` or `Devansh Nair – Full Stack Developer`).
+   * Format: `Page Title – Site Name` (e.g. `Experience – Devansh Nair` or `Devansh Nair – Software Engineer`).
    * Keep between **50–60 characters** so it doesn't get truncated in Google search results.
    * Use Next.js title template in `layout.tsx`:
      ```ts
@@ -63,7 +63,7 @@ Search engines use `<head>` metadata to understand your page title, snippet summ
      }
      ```
 4. **Keywords**:
-   * Curate an array of 5–10 relevant terms (e.g. `["Devansh Nair", "Full Stack Developer", "Competitive Programmer", "Next.js", "React"]`).
+   * Curate an array of 5–10 relevant terms (e.g. `["Devansh Nair", "Software Engineer", "Competitive Programmer", "Next.js", "React"]`).
 
 ---
 
